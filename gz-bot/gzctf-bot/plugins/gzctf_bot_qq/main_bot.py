@@ -1324,7 +1324,7 @@ async def team_handle(bot, event, args: Message = CommandArg()):
         await bot.send(event, "参数错误!\n使用方法: /team [队伍名]\n或使用 /help 查看帮助")
         return
 
-@H.scheduled_job("interval", seconds=20)
+@H.scheduled_job("interval", seconds=20, misfire_grace_time=None)
 async def _():
     global GAME_LIST, STATUS, GAMENOTICE, GAMECHEATS, BAN_STATUS
     bot = get_bot()
